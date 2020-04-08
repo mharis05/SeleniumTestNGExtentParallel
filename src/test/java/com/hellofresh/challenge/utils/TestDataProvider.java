@@ -10,6 +10,9 @@ public class TestDataProvider {
     public static Object[][] dataProviderMethod() {
         return new Object[][]{
                 // Create data from POJO
+                {
+                    new UserAccount()
+                }
         };
     }
 

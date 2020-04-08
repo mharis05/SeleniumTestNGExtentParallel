@@ -1,6 +1,5 @@
 package com.hellofresh.challenge.pages;
 
-import com.hellofresh.challenge.pages.locators.CreateAccountLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

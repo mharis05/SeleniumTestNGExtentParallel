@@ -1,10 +1,13 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
-import com.hellofresh.challenge.pages.locators.LoginPageLocators;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
+
+    By createEmailInputId = By.id("email_create");
+    By createBtnId = By.id("SubmitCreate");
 
     WebDriver driver;
     public LoginPage(WebDriver driver) {
@@ -14,11 +17,11 @@ public class LoginPage extends BasePage {
     }
 
     public void createAccountActionWithEmail(String email) {
-        getElementByVisibility(LoginPageLocators.createEmailInputId).sendKeys(email);
-        getElementByPresence(LoginPageLocators.createBtnId).click();
+        getElementByVisibility(createEmailInputId).sendKeys(email);
+        getElementByPresence(createBtnId).click();
     }
 
     public String getRegisterButtonText(){
-        return driver.findElement(LoginPageLocators.createBtnId).getText();
+        return driver.findElement(createBtnId).getText();
     }
 }

@@ -1,11 +1,13 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
-import com.hellofresh.challenge.pages.locators.HomePageLocators;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
 public class HomePage extends BasePage {
+
+    public By btnLoginClassName = By.className("login");
 
 //    WebDriver driver;
     public HomePage(WebDriver driver) {
@@ -15,6 +17,6 @@ public class HomePage extends BasePage {
 
     public void clickLogin() {
         logger.info("Clicking on the login button.");
-        getElementByVisibility(HomePageLocators.btnLoginClassName).click();
+        getElementByVisibility(btnLoginClassName).click();
     }
 }

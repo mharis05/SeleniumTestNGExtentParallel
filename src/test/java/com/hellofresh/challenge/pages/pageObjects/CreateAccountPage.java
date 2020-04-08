@@ -1,7 +1,7 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
-import com.hellofresh.challenge.pages.locators.CreateAccountLocators;
+import com.hellofresh.challenge.utils.UserAccount;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -35,38 +35,37 @@ public class CreateAccountPage extends BasePage {
         getElementByPresence(genderMrsRadioId);
     }
 
-    public void enterAccountDetails() {
-        getElement(inputFirstNameId).sendKeys("HARIS");
-        getElement(inputLastNameId).sendKeys("SALEEM");
-        getElement(inputPasswordId).sendKeys("Qwerty");
+    public void enterAccountDetails(UserAccount userAccount) {
+        getElement(inputFirstNameId).sendKeys(userAccount.getFirstName());
+        getElement(inputLastNameId).sendKeys(userAccount.getLastName());
+        getElement(inputPasswordId).sendKeys(userAccount.getPassword());
         Select select = new Select(getElement(selectDobDays));
-        select.selectByValue("1");
+        select.selectByValue(userAccount.getBirthday().toString());
 
         select = new Select(getElement(selectDobMonths));
-        select.selectByValue("1");
+        select.selectByValue(userAccount.getBirthMonth().toString());
 
         select = new Select(getElement(selectDobYears));
-        select.selectByValue("2000");
+        select.selectByValue(userAccount.getBirthYear().toString());
 
-        getElement(inputCompanyId).sendKeys("Company");
-        getElement(inputAddressId).sendKeys("Qwerty, 123");
-        getElement(inputAddress2Id).sendKeys("zxcvb");
-        getElement(inputCityId).sendKeys("Qwerty");
+        getElement(inputCompanyId).sendKeys(userAccount.getCompany());
+        getElement(inputAddressId).sendKeys(userAccount.getAddress1());
+        getElement(inputAddress2Id).sendKeys(userAccount.getAddress2());
+        getElement(inputCityId).sendKeys(userAccount.getCity());
 
         select = new Select(getElement(selectStateId));
-        select.selectByVisibleText("Colorado");
+        select.selectByVisibleText(userAccount.getState());
 
-        getElement(inputPostCodeId).sendKeys("12345");
-        getElement(inputOtherId).sendKeys("Qwerty");
-        getElement(inputPhoneId).sendKeys("12345123123");
-        getElement(inputPhoneMobileId).sendKeys("12345123123");
-        getElement(inputAliasId).sendKeys("hf");
+        getElement(inputPostCodeId).sendKeys(userAccount.getPostcode());
+        getElement(inputOtherId).sendKeys(userAccount.getOther());
+        getElement(inputPhoneId).sendKeys(userAccount.getPhone());
+        getElement(inputPhoneMobileId).sendKeys(userAccount.getMobilePhone());
+        getElement(inputAliasId).sendKeys(userAccount.getAlias());
         getElement(btnSubmitId).click();
     }
 
     public String getStoredEmailText() {
-        return getElement(CreateAccountLocators.inputEmailId)
-                .getAttribute("value");
+        return getElement(inputEmailId).getAttribute("value");
     }
 
 

@@ -2,18 +2,16 @@ package com.hellofresh.challenge.tests;
 
 import com.hellofresh.challenge.driverFactory.DriverFactory;
 import com.hellofresh.challenge.driverFactory.DriverType;
-import org.assertj.core.api.SoftAssertions;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
+
 
 import java.net.MalformedURLException;
 
 public class BaseTest {
-    protected WebDriverWait wait;
     protected static ThreadLocal<WebDriver> threadSafeDriver = new ThreadLocal<>();
-    SoftAssertions softly;
 
     @BeforeMethod
     @Parameters(value={"browser"})

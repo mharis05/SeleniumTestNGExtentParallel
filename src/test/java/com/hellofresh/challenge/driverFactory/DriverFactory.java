@@ -11,7 +11,7 @@ import static com.hellofresh.challenge.driverFactory.DriverType.FIREFOX;
 
 public class DriverFactory {
 
-    public static RemoteWebDriver driver;
+    private RemoteWebDriver driver;
 
     public RemoteWebDriver createDriver(DriverType type) {
         switch (type) {

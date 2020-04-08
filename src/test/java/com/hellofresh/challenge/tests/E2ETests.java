@@ -7,16 +7,13 @@ import com.hellofresh.challenge.pages.pageObjects.MyAccountPage;
 import com.hellofresh.challenge.utils.TestDataProvider;
 import com.hellofresh.challenge.utils.UserAccount;
 import org.assertj.core.api.SoftAssertions;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.Date;
 
 public class E2ETests extends BaseTest {
 
-
     @Test(dataProvider = "account-data-provider", dataProviderClass = TestDataProvider.class)
     public void signInTest(UserAccount userAccount) {
+        SoftAssertions softly = new SoftAssertions();
         softly = new SoftAssertions();
 
         HomePage homePage = new HomePage(getDriver());
@@ -41,7 +38,33 @@ public class E2ETests extends BaseTest {
                 .isEqualToIgnoringCase("MY ACCOUNT");
         softly.assertThat(myAccountPage.getElement(myAccountPage.accountNameClass).getText())
                 .isEqualToIgnoringCase(userAccount.getFullName());
+        softly.assertThat(myAccountPage.getElement(myAccountPage.btnLogout).isDisplayed()).isTrue();
 
         softly.assertAll();
+        System.out.println("Thread Id: " + Thread.currentThread().getId());
+    }
+
+    @Test
+    public void logInTest() {
+        SoftAssertions softly = new SoftAssertions();
+        String fullName = "Joe Black";
+        String existingUserEmail = "hf_challenge_123456@hf123456.com";
+        String existingUserPassword = "12345678";
+
+        HomePage homePage = new HomePage(getDriver());
+        homePage.clickLogin();
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        loginPage.loginAsExistingUser(existingUserEmail, existingUserPassword);
+
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
+        softly.assertThat(myAccountPage.getElement(myAccountPage.headingMyAccountCss).getText())
+                .isEqualToIgnoringCase("MY ACCOUNT");
+        softly.assertThat(myAccountPage.getElement(myAccountPage.accountNameClass).getText())
+                .isEqualToIgnoringCase(fullName);
+        softly.assertThat(myAccountPage.getElement(myAccountPage.btnLogout).isDisplayed()).isTrue();
+
+        softly.assertAll();
+        System.out.println("Thread Id: " + Thread.currentThread().getId());
     }
 }

@@ -16,7 +16,7 @@ public class HomePage extends BasePage {
     }
 
     public void clickLogin() {
-        logger.info("Clicking on the login button.");
+        logger.info("Navigating to Log In Page.");
         getElementByVisibility(btnLoginClassName).click();
     }
 }

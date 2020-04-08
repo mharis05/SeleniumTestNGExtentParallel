@@ -36,9 +36,13 @@ public class CreateAccountPage extends BasePage {
     }
 
     public void enterAccountDetails(UserAccount userAccount) {
+        logger.info("Entering User Details.");
         getElement(inputFirstNameId).sendKeys(userAccount.getFirstName());
         getElement(inputLastNameId).sendKeys(userAccount.getLastName());
         getElement(inputPasswordId).sendKeys(userAccount.getPassword());
+
+
+        logger.info("Selecting Date of Birth.");
         Select select = new Select(getElement(selectDobDays));
         select.selectByValue(userAccount.getBirthday().toString());
 
@@ -48,14 +52,17 @@ public class CreateAccountPage extends BasePage {
         select = new Select(getElement(selectDobYears));
         select.selectByValue(userAccount.getBirthYear().toString());
 
+        logger.info("Entering Address and Location details.");
         getElement(inputCompanyId).sendKeys(userAccount.getCompany());
         getElement(inputAddressId).sendKeys(userAccount.getAddress1());
         getElement(inputAddress2Id).sendKeys(userAccount.getAddress2());
         getElement(inputCityId).sendKeys(userAccount.getCity());
 
+        logger.info("Selecting State.");
         select = new Select(getElement(selectStateId));
         select.selectByVisibleText(userAccount.getState());
 
+        logger.info("Entering other details.");
         getElement(inputPostCodeId).sendKeys(userAccount.getPostcode());
         getElement(inputOtherId).sendKeys(userAccount.getOther());
         getElement(inputPhoneId).sendKeys(userAccount.getPhone());

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Suite" parallel="tests" >
+    <test name="com.hellofresh.challenge.tests.E2ETests" parallel="methods" thread-count="2">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.hellofresh.challenge.tests.E2ETests">
+                <methods>
+                    <include name="signInTest" />
+<!--                    <include name="signInTest2" />-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -13,7 +13,7 @@ public class DriverFactory {
     private RemoteWebDriver driver;
 
     public RemoteWebDriver createDriver(String type) {
-        DriverType browser = DriverType.valueOf(type.toUpperCase());
+        DriverType browser = DriverType.valueOf(type.toUpperCase().trim());
 
         switch (browser) {
             case CHROME:
@@ -36,6 +36,5 @@ public class DriverFactory {
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
         return driver;
-
     }
 }

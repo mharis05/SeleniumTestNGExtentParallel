@@ -1,13 +1,16 @@
 package com.hellofresh.challenge.tests;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.hellofresh.challenge.driverFactory.DriverFactory;
 import com.hellofresh.challenge.driverFactory.DriverType;
 
+import com.hellofresh.challenge.utils.extentReports.ExtentManager;
 import org.openqa.selenium.WebDriver;
 
 import org.testng.annotations.*;
 
 
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
 public class BaseTest {
@@ -15,7 +18,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters(value={"browser"})
-    public void setup (String browser) throws MalformedURLException {
+    public void setup (String browser, Method method) throws MalformedURLException {
         DriverFactory driverFactory = new DriverFactory();
         WebDriver driver = driverFactory.createDriver(browser);
 

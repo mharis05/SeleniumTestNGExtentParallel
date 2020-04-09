@@ -11,7 +11,9 @@ import org.testng.annotations.Test;
 
 public class AuthenticationTests extends BaseTest {
 
-    @Test(dataProvider = "account-data-provider", dataProviderClass = TestDataProvider.class)
+    @Test(dataProvider = "account-data-provider",
+            dataProviderClass = TestDataProvider.class,
+            description = "Validate that a new User can register successfully.")
     public void signInTest(UserAccount userAccount) {
         SoftAssertions softly = new SoftAssertions();
         softly = new SoftAssertions();
@@ -43,7 +45,7 @@ public class AuthenticationTests extends BaseTest {
         softly.assertAll();
     }
 
-    @Test
+    @Test(description = "Validate that an existing User can log in to their account successfully.")
     public void logInTest() {
         SoftAssertions softly = new SoftAssertions();
         String fullName = "Joe Black";

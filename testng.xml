@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Automation Test Suite" parallel="methods" thread-count="4">
+    <listeners>
+        <listener class-name="com.hellofresh.challenge.utils.listeners.TestListener"/>
+    </listeners>
+    <parameter name="browser" value="chrome "/>
     <test name="Parallel Tests for E-Commerce App" parallel="methods" thread-count="3">
-        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="com.hellofresh.challenge.tests.AuthenticationTests"/>
             <class name="com.hellofresh.challenge.tests.CheckoutTests"/>

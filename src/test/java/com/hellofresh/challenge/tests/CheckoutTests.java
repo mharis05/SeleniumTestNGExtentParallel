@@ -2,23 +2,25 @@ package com.hellofresh.challenge.tests;
 
 import com.hellofresh.challenge.pages.pageObjects.*;
 import com.hellofresh.challenge.utils.TestDataProvider;
+import com.hellofresh.challenge.utils.extentReports.ExtentManager;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
 import java.util.Map;
 
-public class CheckoutTests extends BaseTest{
+public class CheckoutTests extends BaseTest {
 
-    @Test(dataProvider = "product-data-provider", dataProviderClass = TestDataProvider.class)
+    @Test(dataProvider = "product-data-provider",
+            dataProviderClass = TestDataProvider.class,
+            description = "Validate that existing user can place an order successfully.")
     public void checkoutTest(Map<String, String> authData, String product) {
-
         SoftAssertions softly = new SoftAssertions();
 
         HomePage homePage = new HomePage(getDriver());
         homePage.clickLogin();
 
         LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.loginAsExistingUser(authData.get("email"),authData.get("password"));
+        loginPage.loginAsExistingUser(authData.get("email"), authData.get("password"));
 
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         myAccountPage.selectCategory("Women");

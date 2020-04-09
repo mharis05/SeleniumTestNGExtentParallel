@@ -34,6 +34,7 @@ public class DriverFactory {
 
         // Since the target website is horribly slow, increasing page load timeout.
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
         java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
         return driver;
     }

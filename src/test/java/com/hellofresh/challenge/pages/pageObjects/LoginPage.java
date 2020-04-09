@@ -6,12 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
 
-    By createEmailInputId = By.id("email_create");
-    By createBtnId = By.id("SubmitCreate");
-    By emailInputId = By.id("email");
-    By passwordInputId = By.id("passwd");
-    By loginButtonId = By.id("SubmitLogin");
-    WebDriver driver;
+    private By createEmailInputId = By.id("email_create");
+    private By createBtnId = By.id("SubmitCreate");
+    private By emailInputId = By.id("email");
+    private By passwordInputId = By.id("passwd");
+    private By loginButtonId = By.id("SubmitLogin");
 
     public LoginPage(WebDriver driver) {
         super(driver);

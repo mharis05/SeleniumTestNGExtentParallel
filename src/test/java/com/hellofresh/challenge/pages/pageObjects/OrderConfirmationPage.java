@@ -14,7 +14,7 @@ public class OrderConfirmationPage extends BasePage {
 
     public OrderConfirmationPage(WebDriver driver) {
         super(driver);
-        urlFragment = "payment";
+        urlFragment = "order-confirmation";
         getElementByVisibility(orderConfirmationHeading);
     }
 

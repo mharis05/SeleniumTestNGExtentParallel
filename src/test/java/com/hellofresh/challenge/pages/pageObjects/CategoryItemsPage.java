@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 public class CategoryItemsPage extends BasePage {
 
-    public By categoryLink = By.className("cat-name");
-    public String productNameLink = "//a[@title='name_placeholder'][@class='product-name']";
+    private By categoryLink = By.className("cat-name");
+    private String productNameLink = "//a[@title='name_placeholder'][@class='product-name']";
 
     public CategoryItemsPage(WebDriver driver) {
         super(driver);

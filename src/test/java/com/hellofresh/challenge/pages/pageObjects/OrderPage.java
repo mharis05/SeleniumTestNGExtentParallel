@@ -11,31 +11,12 @@ public class OrderPage extends BasePage {
         return getElement(checkoutButton);
     }
 
-    public By getConfirmAddressButton() {
-        return confirmAddressButton;
-    }
-
-    public By getServiceTermsCheckbox() {
-        return serviceTermsCheckbox;
-    }
-
-    public By getConfirmShippingButton() {
-        return confirmShippingButton;
-    }
-
-    public By getPaymentTypeButton() {
-        return paymentTypeButton;
-    }
-
-
-    By checkoutButton = By.xpath("//*[contains(@class,'cart_navigation')]/a[@title='Proceed to checkout']");
-    By confirmAddressButton = By.name("processAddress");
-    By serviceTermsCheckbox = By.id("uniform-cgv");
-    By confirmShippingButton = By.name("processCarrier");
-    By paymentTypeButton = By.className("bankwire");
-    By confirmPaymentButton = By.xpath("//*[@id='cart_navigation']/button");
-
-
+    private By checkoutButton = By.xpath("//*[contains(@class,'cart_navigation')]/a[@title='Proceed to checkout']");
+    private By confirmAddressButton = By.name("processAddress");
+    private By serviceTermsCheckbox = By.id("uniform-cgv");
+    private By confirmShippingButton = By.name("processCarrier");
+    private By paymentTypeButton = By.className("bankwire");
+    private By confirmPaymentButton = By.xpath("//*[@id='cart_navigation']/button");
 
     public OrderPage(WebDriver driver) {
         super(driver);
@@ -43,20 +24,42 @@ public class OrderPage extends BasePage {
         getElementByVisibility(checkoutButton);
     }
 
+
+    public WebElement getConfirmAddressButton() {
+        return getElement(confirmAddressButton);
+    }
+
+    public WebElement getServiceTermsCheckbox() {
+        return getElement(serviceTermsCheckbox);
+    }
+
+    public WebElement getConfirmShippingButton() {
+        return getElement(confirmShippingButton);
+    }
+
+    public WebElement getPaymentTypeButton() {
+        return getElement(paymentTypeButton);
+    }
+
+    public WebElement confirmPaymentTypeButton() {
+        return getElement(confirmPaymentButton);
+    }
+
     public void confirmProductCheckout() {
         getElement(checkoutButton).click();
     }
 
     public void confirmAddress() {
-        getElement(confirmAddressButton).click();
+        getConfirmAddressButton().click();
     }
 
     public void confirmShipping() {
-        getElement(serviceTermsCheckbox).click();
-        getElement(confirmShippingButton).click();
+        getServiceTermsCheckbox().click();
+        getConfirmShippingButton().click();
     }
 
     public void selectPaymentType() {
-        getElement(paymentTypeButton).click();
+        getPaymentTypeButton().click();
+        confirmPaymentTypeButton().click();
     }
 }

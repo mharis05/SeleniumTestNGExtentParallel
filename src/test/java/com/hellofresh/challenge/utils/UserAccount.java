@@ -1,13 +1,9 @@
 package com.hellofresh.challenge.utils;
-
 import com.github.javafaker.Faker;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 public class UserAccount {
 
@@ -32,6 +28,11 @@ public class UserAccount {
 
     private Faker faker = new Faker();
 
+    /**
+     * UserAccount Class
+     * Generates fake data to help create unique
+     * new Users for registration
+     */
     public UserAccount() {
 
         generateRandomBirthday();

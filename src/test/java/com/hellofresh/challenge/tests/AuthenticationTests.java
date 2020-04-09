@@ -8,13 +8,25 @@ import com.hellofresh.challenge.utils.TestDataProvider;
 import com.hellofresh.challenge.utils.UserAccount;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
+import java.util.HashMap;
 
+/**
+ * Test Class: Authentication Scenarios
+ * Tests:
+ * User Registration,
+ * Log In as Existing User
+ */
 public class AuthenticationTests extends BaseTest {
 
+    /**
+     * Test: User Registration scenario
+     * Receives data from data provider class
+     * @param userAccount UserAccount POJO with dynamically generated fake data.
+     */
     @Test(dataProvider = "account-data-provider",
             dataProviderClass = TestDataProvider.class,
             description = "Validate that a new User can register successfully.")
-    public void signInTest(UserAccount userAccount) {
+    public void userRegistrationTest(UserAccount userAccount) {
         SoftAssertions softly = new SoftAssertions();
         softly = new SoftAssertions();
 
@@ -32,38 +44,42 @@ public class AuthenticationTests extends BaseTest {
         softly.assertThat(createAccountPage.getStoredEmailText())
                 .isEqualTo(userAccount.getEmail());
 
-
         createAccountPage.enterAccountDetails(userAccount);
 
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-        softly.assertThat(myAccountPage.getElement(myAccountPage.headingMyAccountCss).getText())
+        softly.assertThat(myAccountPage.getHeadingMyAccountCss().getText())
                 .isEqualToIgnoringCase("MY ACCOUNT");
-        softly.assertThat(myAccountPage.getElement(myAccountPage.accountNameClass).getText())
+        softly.assertThat(myAccountPage.getAccountName().getText())
                 .isEqualToIgnoringCase(userAccount.getFullName());
-        softly.assertThat(myAccountPage.getElement(myAccountPage.btnLogout).isDisplayed()).isTrue();
+        softly.assertThat(myAccountPage.getBtnLogout().isDisplayed()).isTrue();
 
         softly.assertAll();
     }
 
-    @Test(description = "Validate that an existing User can log in to their account successfully.")
-    public void logInTest() {
+    /**
+     * Test: Sign in scenario.
+     * Receives data from data provider class
+     * @param data with existing user credentials.
+     */
+    @Test(dataProvider = "existing-user-provider",
+            dataProviderClass = TestDataProvider.class,
+            description = "Validate that an existing User can log in to their account successfully.")
+    public void logInTest(HashMap<String, String> data) {
         SoftAssertions softly = new SoftAssertions();
-        String fullName = "Joe Black";
-        String existingUserEmail = "hf_challenge_123456@hf123456.com";
-        String existingUserPassword = "12345678";
+        String fullName = data.get("fullName");
 
         HomePage homePage = new HomePage(getDriver());
         homePage.clickLogin();
         LoginPage loginPage = new LoginPage(getDriver());
 
-        loginPage.loginAsExistingUser(existingUserEmail, existingUserPassword);
+        loginPage.loginAsExistingUser(data.get("email"), data.get("password"));
 
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-        softly.assertThat(myAccountPage.getElement(myAccountPage.headingMyAccountCss).getText())
+        softly.assertThat(myAccountPage.getHeadingMyAccountCss().getText())
                 .isEqualToIgnoringCase("MY ACCOUNT");
-        softly.assertThat(myAccountPage.getElement(myAccountPage.accountNameClass).getText())
+        softly.assertThat(myAccountPage.getAccountName().getText())
                 .isEqualToIgnoringCase(fullName);
-        softly.assertThat(myAccountPage.getElement(myAccountPage.btnLogout).isDisplayed()).isTrue();
+        softly.assertThat(myAccountPage.getBtnLogout().isDisplayed()).isTrue();
 
         softly.assertAll();
     }

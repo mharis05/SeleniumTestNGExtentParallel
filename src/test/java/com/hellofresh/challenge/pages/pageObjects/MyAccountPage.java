@@ -3,16 +3,17 @@ package com.hellofresh.challenge.pages.pageObjects;
 import com.hellofresh.challenge.pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class MyAccountPage extends BasePage {
 
-    public By headingMyAccountCss = By.cssSelector("h1");
-    public By accountNameClass = By.className("account");
-    public By accountInfoClass = By.className("info-account");
-    public By btnLogout = By.className("logout");
-    public By linkWomenText = By.linkText("Women");
-    public By linkDressesText = By.linkText("Dresses");
-    public By linkTshirtsText = By.linkText("Women");
+    private By headingMyAccountCss = By.cssSelector("h1");
+    private By accountName = By.className("account");
+    private By accountInfo = By.className("info-account");
+    private By btnLogout = By.className("logout");
+    private By linkWomenText = By.linkText("Women");
+    private By linkDressesText = By.linkText("Dresses");
+    private By linkTshirtsText = By.linkText("Women");
 
     public MyAccountPage(WebDriver driver) {
         super(driver);
@@ -36,5 +37,16 @@ public class MyAccountPage extends BasePage {
         }
     }
 
+    public WebElement getHeadingMyAccountCss() {
+        return getElementByVisibility(headingMyAccountCss);
+    }
+
+    public WebElement getAccountName() {
+        return getElement(accountName);
+    }
+
+    public WebElement getBtnLogout() {
+        return getElement(btnLogout);
+    }
 
 }

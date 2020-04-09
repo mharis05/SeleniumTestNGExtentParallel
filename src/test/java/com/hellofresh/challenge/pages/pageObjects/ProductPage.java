@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 
 public class ProductPage extends BasePage {
 
-    By priceText = By.id("our_price_display");
-    By addToCartButton = By.name("Submit");
-    By checkOutButton = By.xpath("//*[@id='layer_cart']//a[@class and @title='Proceed to checkout']");
+    private By priceText = By.id("our_price_display");
+    private By addToCartButton = By.name("Submit");
+    private By checkOutButton = By.xpath("//*[@id='layer_cart']//a[@class and @title='Proceed to checkout']");
 
     public ProductPage(WebDriver driver) {
         super(driver);

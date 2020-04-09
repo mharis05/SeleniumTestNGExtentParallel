@@ -2,14 +2,19 @@ package com.hellofresh.challenge.tests;
 
 import com.hellofresh.challenge.pages.pageObjects.*;
 import com.hellofresh.challenge.utils.TestDataProvider;
-import com.hellofresh.challenge.utils.extentReports.ExtentManager;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
-
 import java.util.Map;
 
 public class CheckoutTests extends BaseTest {
 
+    /**
+     * Test: Checkout Scenario
+     * Receives data from Data provider class as parameter
+     * @param authData existing User Data as HashMap
+     * @param product Product data to use in test as String
+     * All assertions are executed in Tests and not in Pages.
+     */
     @Test(dataProvider = "product-data-provider",
             dataProviderClass = TestDataProvider.class,
             description = "Validate that existing user can place an order successfully.")
@@ -41,10 +46,11 @@ public class CheckoutTests extends BaseTest {
         orderPage.selectPaymentType();
 
         OrderConfirmationPage orderConfirmationPage = new OrderConfirmationPage(getDriver());
-        softly.assertThat(orderConfirmationPage.getUrl()).contains(orderConfirmationPage.getPageUrlFragment());
         softly.assertThat(orderConfirmationPage.getOrderConfirmationHeading().getText()).isEqualTo("ORDER CONFIRMATION");
         softly.assertThat(orderConfirmationPage.getShippingDoneTab().isDisplayed()).isTrue();
         softly.assertThat(orderConfirmationPage.getPaymentTab().isDisplayed()).isTrue();
         softly.assertThat(orderConfirmationPage.getOrderConfirmationLabel().getText()).contains("Your order on My Store is complete.");
+        softly.assertThat(orderConfirmationPage.getUrl()).contains(orderConfirmationPage.getPageUrlFragment());
+        softly.assertAll();
     }
 }

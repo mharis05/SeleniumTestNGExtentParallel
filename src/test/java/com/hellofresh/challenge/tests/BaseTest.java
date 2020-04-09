@@ -17,7 +17,7 @@ public class BaseTest {
     @Parameters(value={"browser"})
     public void setup (String browser) throws MalformedURLException {
         DriverFactory driverFactory = new DriverFactory();
-        WebDriver driver = driverFactory.createDriver(DriverType.CHROME);
+        WebDriver driver = driverFactory.createDriver(browser);
 
         //Set Browser to ThreadLocalMap
         threadSafeDriver.set(driver);

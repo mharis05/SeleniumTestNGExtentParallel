@@ -43,13 +43,16 @@ public class CreateAccountPage extends BasePage {
 
 
         logger.info("Selecting Date of Birth.");
+        logger.info("Setting birth Day to " + userAccount.getBirthday().toString());
         Select select = new Select(getElement(selectDobDays));
         select.selectByValue(userAccount.getBirthday().toString());
 
         select = new Select(getElement(selectDobMonths));
+        logger.info("Setting birth Month to " + userAccount.getBirthMonth().toString());
         select.selectByValue(userAccount.getBirthMonth().toString());
 
         select = new Select(getElement(selectDobYears));
+        logger.info("Setting birth Year to " + userAccount.getBirthYear().toString());
         select.selectByValue(userAccount.getBirthYear().toString());
 
         logger.info("Entering Address and Location details.");

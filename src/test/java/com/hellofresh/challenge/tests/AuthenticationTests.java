@@ -9,7 +9,7 @@ import com.hellofresh.challenge.utils.UserAccount;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
-public class E2ETests extends BaseTest {
+public class AuthenticationTests extends BaseTest {
 
     @Test(dataProvider = "account-data-provider", dataProviderClass = TestDataProvider.class)
     public void signInTest(UserAccount userAccount) {
@@ -41,7 +41,6 @@ public class E2ETests extends BaseTest {
         softly.assertThat(myAccountPage.getElement(myAccountPage.btnLogout).isDisplayed()).isTrue();
 
         softly.assertAll();
-        System.out.println("Thread Id: " + Thread.currentThread().getId());
     }
 
     @Test
@@ -65,6 +64,5 @@ public class E2ETests extends BaseTest {
         softly.assertThat(myAccountPage.getElement(myAccountPage.btnLogout).isDisplayed()).isTrue();
 
         softly.assertAll();
-        System.out.println("Thread Id: " + Thread.currentThread().getId());
     }
 }

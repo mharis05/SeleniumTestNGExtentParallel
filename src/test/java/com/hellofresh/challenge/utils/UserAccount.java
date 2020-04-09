@@ -3,6 +3,8 @@ package com.hellofresh.challenge.utils;
 import com.github.javafaker.Faker;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -26,18 +28,20 @@ public class UserAccount {
     private String phone;
     private String mobilePhone;
     private String alias;
+    private LocalDate randomBirthday;
 
     private Faker faker = new Faker();
 
     public UserAccount() {
 
+        generateRandomBirthday();
         this.firstName = faker.name().firstName();
         this.lastName = faker.name().lastName();
         this.email = firstName + lastName + "@gmail.com";
         this.password = "qwerty";
-        this.birthday = generateRandomBirthDay().get(Calendar.DAY_OF_MONTH);
-        this.birthMonth = generateRandomBirthDay().get(Calendar.MONTH);
-        this.birthYear = generateRandomBirthDay().get(Calendar.YEAR);
+        this.birthday = randomBirthday.getDayOfMonth();
+        this.birthMonth = randomBirthday.getMonthValue();
+        this.birthYear = randomBirthday.getYear();
         this.company = faker.company().name();
         this.address1 = faker.address().streetAddress();
         this.address2 = faker.address().secondaryAddress();
@@ -51,13 +55,13 @@ public class UserAccount {
 
     }
 
-    private Calendar generateRandomBirthDay() {
-        Calendar calendar = new GregorianCalendar(1990, 1, 1);
-        Date minDate = calendar.getTime();
-        calendar.set(2019, 1, 1);
-        Date maxDate = calendar.getTime();
-        calendar.setTime(faker.date().between(minDate, maxDate));
-        return calendar;
+    private void generateRandomBirthday(){
+        LocalDate minDate = LocalDate.of(1900, 1, 1);
+        LocalDate maxDate = LocalDate.of(2019, 1, 1);
+        Date randomDate = faker.date().between(java.sql.Date.valueOf(minDate), java.sql.Date.valueOf(maxDate));
+        randomBirthday = randomDate.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
     }
 
     public String getFullName() {

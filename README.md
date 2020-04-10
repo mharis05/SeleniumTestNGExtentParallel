@@ -38,16 +38,6 @@ Open Terminal in project root and run:
 #### Run all tests (Parallel, Firefox)
 Open Terminal in project root and run:
 `mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox`
- 
-#### Run single test with specific browser
-For example, if you need to run test method "userRegistrationTest" in "AuthenticationTests" class:
-Open Terminal in project root and run:
-`mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox -Dtest=AuthenticationTests#userRegistrationTest`
-
-#### Run all tests in single class with specific browser (Parallel)
-For example, if you need to run test methods in "AuthenticationTests" class:
-Open Terminal in project root and run:
-`mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox -Dtest=AuthenticationTests`
 
 ### Where to find Test Report?
 Test HTML report is generated at the end of each run inside TestReport folder in project root.
@@ -58,6 +48,17 @@ Screenshots in case of failure saved as .png file inside FailureScreenshots fold
 ### Where to find logs after test run?
 Logs are populated for each run inside logs folder in project root.
 
+### Running subset of Tests via Command line
 
-#### Known limitations:
+#### Run single test with specific browser
+For example, if you need to run test method "userRegistrationTest" in "AuthenticationTests" class:
+Open Terminal in project root and run:
+`mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox -Dtest=AuthenticationTests#userRegistrationTest`
+
+#### Run all tests in single class with specific browser (Parallel)
+For example, if you need to run test methods in "AuthenticationTests" class:
+Open Terminal in project root and run:
+`mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox -Dtest=AuthenticationTests`
+
+##### Known limitations when running subset of tests via mvn test:
 - Extent report does not generate if a subset of tests are run using `mvn test` commands.

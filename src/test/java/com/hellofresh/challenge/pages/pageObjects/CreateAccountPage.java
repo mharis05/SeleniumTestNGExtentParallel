@@ -2,11 +2,17 @@ package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
 import com.hellofresh.challenge.utils.UserAccount;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+/**
+ * Create Account Page
+ */
 public class CreateAccountPage extends BasePage {
+
+    private static Logger logger = Logger.getLogger(CreateAccountPage.class.getName());
 
     private By genderMrsRadioId = By.id("id_gender2");
     private By inputFirstNameId = By.id("customer_firstname");

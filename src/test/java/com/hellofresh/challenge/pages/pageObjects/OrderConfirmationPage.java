@@ -1,11 +1,17 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * Order confirmation page object
+ */
 public class OrderConfirmationPage extends BasePage {
+
+    private static Logger logger = Logger.getLogger(OrderConfirmationPage.class.getName());
 
     private By orderConfirmationHeading = By.cssSelector("h1");
     private By shippingDoneTab = By.xpath("//li[@class='step_done step_done_last four']");

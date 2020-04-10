@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 /**
  * Base page containing common actions for Page Objects
@@ -16,7 +15,7 @@ import java.util.logging.Logger;
 public class BasePage {
     protected WebDriverWait wait;
     protected WebDriver driver;
-    protected final static Logger logger = Logger.getLogger(BasePage.class.getName());
+    private final static Logger logger = Logger.getLogger(BasePage.class.getName());
     protected String urlFragment;
 
     public BasePage(WebDriver driver) {
@@ -40,6 +39,7 @@ public class BasePage {
      * @return WebElement
      */
     protected WebElement getElementByVisibility(By locator) {
+        logger.info("Waiting for element visibility for: " + locator.toString());
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
@@ -49,6 +49,7 @@ public class BasePage {
      * @return WebElement
      */
     protected WebElement getElementByPresence(By locator) {
+        logger.info("Waiting for element presence for: " + locator.toString());
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
@@ -58,6 +59,7 @@ public class BasePage {
      * @return Boolean result
      */
     public boolean waitForUrlToContain(String url) {
+        logger.info("Waiting for url to update and contain: " + url);
         return wait.until(ExpectedConditions.urlContains(url));
     }
 
@@ -67,6 +69,7 @@ public class BasePage {
      * @return
      */
     public WebElement getElement(By locator) {
+        logger.info("Finding element: " + locator.toString());
         return driver.findElement(locator);
     }
 

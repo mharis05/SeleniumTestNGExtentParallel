@@ -1,11 +1,17 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * Order steps Page object
+ */
 public class OrderPage extends BasePage {
+
+    private static Logger logger = Logger.getLogger(OrderPage.class.getName());
 
     public WebElement getCheckoutButton() {
         return getElement(checkoutButton);
@@ -53,12 +59,21 @@ public class OrderPage extends BasePage {
         getConfirmAddressButton().click();
     }
 
+    /**
+     * Confirm shipping steps on Order page
+     */
     public void confirmShipping() {
+        logger.info("Confirming service terms");
         getServiceTermsCheckbox().click();
+        logger.info("Confirming shipping");
         getConfirmShippingButton().click();
     }
 
+    /**
+     * Confirm payment steps on Order Page
+     */
     public void selectPaymentType() {
+        logger.info("Confirming payment type");
         getPaymentTypeButton().click();
         confirmPaymentTypeButton().click();
     }

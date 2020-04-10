@@ -1,6 +1,8 @@
 package com.hellofresh.challenge.driverFactory;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -17,8 +19,10 @@ public class DriverFactory {
 
         switch (browser) {
             case CHROME:
+                ChromeOptions options = new ChromeOptions();
+                options.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/driverBinaries/chromedriver");
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 System.setProperty("webdriver.chrome.silentOutput", "true");
                 break;
             case FIREFOX:
@@ -31,8 +35,6 @@ public class DriverFactory {
         }
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS );
         driver.manage().window().maximize();
-
-        // Since the target website is horribly slow, increasing page load timeout.
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
         java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);

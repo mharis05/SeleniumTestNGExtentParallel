@@ -20,7 +20,7 @@ public class DriverFactory {
         switch (browser) {
             case CHROME:
                 ChromeOptions options = new ChromeOptions();
-                options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+                options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/driverBinaries/chromedriver");
                 driver = new ChromeDriver(options);
                 System.setProperty("webdriver.chrome.silentOutput", "true");

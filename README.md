@@ -53,11 +53,13 @@ Logs are populated for each run inside logs folder in project root.
 #### Run single test with specific browser
 For example, if you need to run test method "userRegistrationTest" in "AuthenticationTests" class:
 Open Terminal in project root and run:
+
 `mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox -Dtest=AuthenticationTests#userRegistrationTest`
 
 #### Run all tests in single class with specific browser (Parallel)
 For example, if you need to run test methods in "AuthenticationTests" class:
 Open Terminal in project root and run:
+
 `mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox -Dtest=AuthenticationTests`
 
 ##### Known limitations when running subset of tests via mvn test:

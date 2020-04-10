@@ -77,9 +77,8 @@ Logs are populated for each run inside `logs` folder in project root.
 Due to issues/ lack of support relating to clicking and parallel execution in Safari, the tests do not support the browser.
 
 Clicking:
-
 https://github.com/SeleniumHQ/selenium/issues/7649#issuecomment-567614688
-Parallel:
 
+Parallel:
 https://developer.apple.com/documentation/webkit/about_webdriver_for_safari
 

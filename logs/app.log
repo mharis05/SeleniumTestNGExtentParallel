@@ -1,0 +1,18 @@
+2020-04-10 14:44:23,622 INFO c.h.c.t.BaseTest [TestNG-PoolService-0] Creating threadsafe driver instance forchrome 
+2020-04-10 14:44:27,617 INFO c.h.c.t.BaseTest [TestNG-PoolService-0] WebDriver saved to context.
+2020-04-10 14:44:27,826 INFO c.h.c.p.p.HomePage [TestNG-PoolService-0] Navigating to Log In Page.
+2020-04-10 14:44:27,827 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Waiting for element visibility for: By.className: login
+2020-04-10 14:44:30,228 INFO c.h.c.p.p.LoginPage [TestNG-PoolService-0] Entering email as existing user.
+2020-04-10 14:44:30,228 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Waiting for element visibility for: By.id: email
+2020-04-10 14:44:30,822 INFO c.h.c.p.p.LoginPage [TestNG-PoolService-0] Entering password as existing user.
+2020-04-10 14:44:30,822 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Finding element: By.id: passwd
+2020-04-10 14:44:30,890 INFO c.h.c.p.p.LoginPage [TestNG-PoolService-0] Pressed Log In.
+2020-04-10 14:44:30,891 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Finding element: By.id: SubmitLogin
+2020-04-10 14:44:32,539 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Waiting for element presence for: By.cssSelector: h1
+2020-04-10 14:44:32,552 INFO c.h.c.p.p.MyAccountPage [TestNG-PoolService-0] Selecting category: Women
+2020-04-10 14:44:32,552 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Finding element: By.linkText: Women
+2020-04-10 14:44:34,463 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Waiting for element visibility for: By.className: cat-name
+2020-04-10 14:44:34,486 INFO c.h.c.p.p.CategoryItemsPage [TestNG-PoolService-0] Selecting product: Faded Short Sleeve T-shirts
+2020-04-10 14:44:34,486 INFO c.h.c.p.BasePage [TestNG-PoolService-0] Waiting for element visibility for: By.xpath: //a[@title='name'][@class='product-name']
+2020-04-10 14:44:45,266 INFO c.h.c.t.BaseTest [TestNG-PoolService-0] Killing driver instance
+2020-04-10 14:44:45,382 INFO c.h.c.t.BaseTest [TestNG-test=Parallel Tests for E-Commerce App-1] Removing thread.

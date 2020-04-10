@@ -1,7 +1,9 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +12,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class ProductPage extends BasePage {
 
-    private static Logger logger = Logger.getLogger(ProductPage.class.getName());
+    private static final Logger logger = LogManager.getLogger(ProductPage.class);
 
     private By priceText = By.id("our_price_display");
     private By addToCartButton = By.name("Submit");

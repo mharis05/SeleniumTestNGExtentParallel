@@ -1,16 +1,18 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 
 /**
  * Login PageObject class
  */
 public class LoginPage extends BasePage {
 
-    private static Logger logger = Logger.getLogger(LoginPage.class.getName());
+    private static final Logger logger = LogManager.getLogger(LoginPage.class);
 
     private By createEmailInputId = By.id("email_create");
     private By createBtnId = By.id("SubmitCreate");

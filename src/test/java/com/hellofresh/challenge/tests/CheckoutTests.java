@@ -2,7 +2,8 @@ package com.hellofresh.challenge.tests;
 
 import com.hellofresh.challenge.pages.pageObjects.*;
 import com.hellofresh.challenge.utils.TestDataProvider;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
@@ -11,7 +12,7 @@ import java.util.Map;
 
 public class CheckoutTests extends BaseTest {
 
-    private static Logger logger = Logger.getLogger(CheckoutTests.class.getName());
+    private static final Logger logger = LogManager.getLogger(CheckoutTests.class);
 
     /**
      * Test: Checkout Scenario

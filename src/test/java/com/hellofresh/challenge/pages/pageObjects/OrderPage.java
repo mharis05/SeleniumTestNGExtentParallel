@@ -1,7 +1,8 @@
 package com.hellofresh.challenge.pages.pageObjects;
 
 import com.hellofresh.challenge.pages.BasePage;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,7 @@ import org.openqa.selenium.WebElement;
  */
 public class OrderPage extends BasePage {
 
-    private static Logger logger = Logger.getLogger(OrderPage.class.getName());
+    private static final Logger logger = LogManager.getLogger(OrderPage.class);
 
     public WebElement getCheckoutButton() {
         return getElement(checkoutButton);

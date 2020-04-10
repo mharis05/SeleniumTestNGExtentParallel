@@ -55,11 +55,12 @@ public class TestListener implements ITestListener {
      * @param result captured test result
      */
     public void onTestFailure(ITestResult result) {
-        ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
         String methodName = result.getName().trim();
         ITestContext context = result.getTestContext();
         WebDriver driver = (WebDriver) context.getAttribute("webDriver");
         takeScreenShot(methodName, driver);
+        ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
+
     }
 
     public void onTestSkipped(ITestResult result) {

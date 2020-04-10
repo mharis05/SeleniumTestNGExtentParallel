@@ -6,9 +6,10 @@ import com.hellofresh.challenge.pages.pageObjects.LoginPage;
 import com.hellofresh.challenge.pages.pageObjects.MyAccountPage;
 import com.hellofresh.challenge.utils.TestDataProvider;
 import com.hellofresh.challenge.utils.UserAccount;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
-import org.apache.log4j.Logger;
 import java.util.HashMap;
 
 /**
@@ -19,7 +20,7 @@ import java.util.HashMap;
  */
 public class AuthenticationTests extends BaseTest {
 
-    private static Logger logger = Logger.getLogger(AuthenticationTests.class.getName());
+    private static final Logger logger = LogManager.getLogger(AuthenticationTests.class);
 
     /**
      * Test: User Registration scenario

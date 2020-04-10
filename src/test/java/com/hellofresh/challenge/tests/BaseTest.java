@@ -2,13 +2,15 @@ package com.hellofresh.challenge.tests;
 
 import com.hellofresh.challenge.driverFactory.DriverFactory;
 import com.hellofresh.challenge.utils.PropertyReader;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import org.apache.log4j.Logger;
+
 
 import java.net.MalformedURLException;
 
@@ -19,7 +21,7 @@ import java.net.MalformedURLException;
  */
 public class BaseTest {
     protected static ThreadLocal<WebDriver> threadSafeDriver = new ThreadLocal<>();
-    private static final Logger logger = Logger.getLogger(BaseTest.class.getName());
+    private static final Logger logger = LogManager.getLogger(BaseTest.class);
 
     @BeforeMethod
     @Parameters(value = {"browser"})

@@ -32,20 +32,6 @@ Open Terminal in project root and run:
 Open Terminal in project root and run:
 `mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox`
 
-### From IDE
-- Locate `testng.xml` in project root, right click and select Run
-- Browser can be configured by changing `value` following line in the xml file:
-`<parameter name="browser" value="chrome"/>`
-
-### Where to find Test Report?
-Test HTML report is generated at the end of each run inside `TestReport` folder in project root.
-
-### Where to find failed test screenshots?
-Screenshots in case of failure saved as .png file inside `FailureScreenshots` folder in project root.
-
-### Where to find logs after test run?
-Logs are populated for each run inside `logs` folder in project root.
-
 ### Running subset of Tests via Command line
 
 #### Run single test with specific browser
@@ -60,9 +46,29 @@ Open Terminal in project root and run:
 
 `mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox -Dtest=AuthenticationTests`
 
-##### Known limitations when running subset of tests via mvn test:
-- Extent report does not generate if a subset of tests are run using `mvn test` commands.
+### From IDE
+- Locate `testng.xml` in project root, right click and select Run
+- Browser can be configured by changing `value` following line in the xml file:
+`<parameter name="browser" value="chrome"/>`
 
 ### Running subset of tests via IDE
 - Tests can be added or removed from execution by adding and removing `<class>` tags.
-- Methods can be removed from execution by using `<exclude>` tags.
+- Methods can be removed from execution by using `<exclude>` tags as below:
+
+```
+            <class name="com.hellofresh.challenge.tests.AuthenticationTests">
+                <methods>
+                    <include name="userRegistrationTest" />
+                    <exclude name="logInTest" />
+                </methods>
+            </class>
+```
+
+### Where to find Test Report?
+Test HTML report is generated at the end of each run inside `TestReport` folder in project root.
+
+### Where to find failed test screenshots?
+Screenshots in case of failure saved as .png file inside `FailureScreenshots` folder in project root.
+
+### Where to find logs after test run?
+Logs are populated for each run inside `logs` folder in project root.

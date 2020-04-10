@@ -43,10 +43,10 @@ Open Terminal in project root and run:
 Test HTML report is generated at the end of each run inside TestReport folder in project root.
 
 ### Where to find failed test screenshots?
-Screenshots in case of failure saved as .png file inside FailureScreenshots folder in project root.
+Screenshots in case of failure saved as .png file inside `FailureScreenshots` folder in project root.
 
 ### Where to find logs after test run?
-Logs are populated for each run inside logs folder in project root.
+Logs are populated for each run inside `logs` folder in project root.
 
 ### Running subset of Tests via Command line
 

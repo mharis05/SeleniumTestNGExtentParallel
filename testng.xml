@@ -4,11 +4,20 @@
     <listeners>
         <listener class-name="com.hellofresh.challenge.utils.listeners.TestListener"/>
     </listeners>
-    <parameter name="browser" value="chrome "/>
+    <parameter name="browser" value="chrome"/>
     <test name="Parallel Tests for E-Commerce App" parallel="methods" thread-count="3">
         <classes>
-            <class name="com.hellofresh.challenge.tests.AuthenticationTests"/>
-            <class name="com.hellofresh.challenge.tests.CheckoutTests"/>
+            <class name="com.hellofresh.challenge.tests.AuthenticationTests">
+                <methods>
+                    <include name="userRegistrationTest" />
+                    <include name="logInTest" />
+                </methods>
+            </class>
+            <class name="com.hellofresh.challenge.tests.CheckoutTests">
+                <methods>
+                    <include name="checkoutTest" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

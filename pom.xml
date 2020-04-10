@@ -6,7 +6,6 @@
     <version>1.0-SNAPSHOT</version>
     <name>web-test</name>
 
-
     <build>
         <plugins>
             <plugin>
@@ -17,6 +16,8 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <parallel>methods</parallel>
+                    <threadCount>10</threadCount>
                     <properties>
                         <property>
                             <name>parallel</name>

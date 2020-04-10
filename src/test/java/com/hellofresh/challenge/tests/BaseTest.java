@@ -27,7 +27,13 @@ public class BaseTest {
     @Parameters(value = {"browser"})
     public void setup(String browser, ITestContext context) {
 
-        logger.info("Creating threadsafe driver instance for" + browser);
+        // When not running via mvn, use the browser from testng.xml,
+        // otherwise use the browser specified in mvn argument
+        if(System.getProperty("browser") != null) {
+            browser = System.getProperty("browser");
+        };
+
+        logger.info("Creating threadsafe driver instance for: " + browser);
         DriverFactory driverFactory = new DriverFactory();
         WebDriver driver = driverFactory.createDriver(browser);
 

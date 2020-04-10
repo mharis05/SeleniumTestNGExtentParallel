@@ -22,13 +22,6 @@ Simple Automation Test suite using Selenium JVM and TestNG
 2. Maven is installed and Environment variable is set 
 3. Clone this repository
 
-### From IDE
-- Locate `testng.xml` in project root, right click and select Run
-- Browser can be configured by changing `value` following line in the xml file:
-`<parameter name="browser" value="chrome"/>`
-- Tests can be added or removed from execution by adding and removing `<class>` entry.
-
-
 ### From Command Line
 
 #### Run all tests (Parallel, default: Chrome)
@@ -39,8 +32,13 @@ Open Terminal in project root and run:
 Open Terminal in project root and run:
 `mvn clean test -DxmlFileName=testng.xml -Dbrowser=firefox`
 
+### From IDE
+- Locate `testng.xml` in project root, right click and select Run
+- Browser can be configured by changing `value` following line in the xml file:
+`<parameter name="browser" value="chrome"/>`
+
 ### Where to find Test Report?
-Test HTML report is generated at the end of each run inside TestReport folder in project root.
+Test HTML report is generated at the end of each run inside `TestReport` folder in project root.
 
 ### Where to find failed test screenshots?
 Screenshots in case of failure saved as .png file inside `FailureScreenshots` folder in project root.
@@ -64,3 +62,7 @@ Open Terminal in project root and run:
 
 ##### Known limitations when running subset of tests via mvn test:
 - Extent report does not generate if a subset of tests are run using `mvn test` commands.
+
+### Running subset of tests via IDE
+- Tests can be added or removed from execution by adding and removing `<class>` tags.
+- Methods can be removed from execution by using `<exclude>` tags.

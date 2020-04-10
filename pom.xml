@@ -24,6 +24,10 @@
                             <value>methods</value>
                         </property>
                         <property>
+                            <name>listener</name>
+                            <value>com.hellofresh.challenge.utils.listeners.TestListener</value>
+                        </property>
+                        <property>
                             <name>dataproviderthreadcount</name>
                             <value>15</value>
                         </property>

@@ -1,5 +1,4 @@
-# helloFreshTests
-Simple Automation Test suite using Selenium JVM and TestNG
+# Simple Automation Test suite using Selenium JVM and TestNG with ExtentReports and Parallel Test execution support
 
 ## Features:
 - Logging using log4j2 in console and file.
